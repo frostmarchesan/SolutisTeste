@@ -1,5 +1,7 @@
 O desafio consiste em criar um app de banco, que consiste em uma tela de login e uma tela de extrato.
 
+![Image Login](https://gitlab.solutis.digital/caique.silveira/desafio-ios/raw/cab728b84d89b645af23f87c424f0bf8554ffa55/Assets%20Teste%20Solutis/Login_Screen.png)
+
 Na primeira tela teremos um formulario de login, o campo user deve aceitar email ou cpf, o campo password deve validar se a senha tem pelo menos uma letra maiuscula, um caracter especial e um caracter alfanumérico. Apos a validação, realizar o login no endpoint https://api.mobile.test.solutis.xyz/login e exibir os dados de retorno na próxima tela. O ultimo usuário logado deve ser salvo de forma segura localmente, e exibido na tela de login se houver algum salvo.
 
 Na segunda tela será exibido os dados formatados do retorno do login e será necessário fazer um segundo request para obter os lançamentos do usuário, no endpoint https://api.mobile.test.solutis.xyz/extrato que retornará uma lista de lançamentos
