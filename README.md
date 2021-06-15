@@ -6,6 +6,8 @@ Na primeira tela teremos um formulario de login, o campo user deve aceitar email
 
 Na segunda tela será exibido os dados formatados do retorno do login e será necessário fazer um segundo request para obter os lançamentos do usuário, no endpoint https://api.mobile.test.solutis.xyz/extrato que retornará uma lista de lançamentos
 
+![Image Menu](https://gitlab.solutis.digital/caique.silveira/desafio-ios/raw/cab728b84d89b645af23f87c424f0bf8554ffa55/Assets%20Teste%20Solutis/Home_populed.png)
+
 O layout e assets se encontram em anexo neste repositório e a documentação da API encontra-se no arquivo "Teste da Solutis.postman_collection.json"
 
 Para realização deste desafio você deve clonar este repositório e disponibilizar a resposta num repositório público no github.
