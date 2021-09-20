@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E278E1926F8EF7000F3A1DF /* Teste da Solutis.postman_collection.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E278E1826F8EF7000F3A1DF /* Teste da Solutis.postman_collection.json */; };
 		2EEC44EB26F8C4A100C834AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC44EA26F8C4A100C834AE /* AppDelegate.swift */; };
 		2EEC44ED26F8C4A100C834AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC44EC26F8C4A100C834AE /* SceneDelegate.swift */; };
 		2EEC44EF26F8C4A100C834AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC44EE26F8C4A100C834AE /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E278E1826F8EF7000F3A1DF /* Teste da Solutis.postman_collection.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "Teste da Solutis.postman_collection.json"; path = "../../Teste da Solutis.postman_collection.json"; sourceTree = "<group>"; };
 		2EEC44E726F8C4A100C834AE /* SolutisTeste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolutisTeste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EEC44EA26F8C4A100C834AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EEC44EC26F8C4A100C834AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				2EEC44F326F8C4A200C834AE /* Assets.xcassets */,
 				2EEC44F526F8C4A200C834AE /* LaunchScreen.storyboard */,
 				2EEC44F826F8C4A200C834AE /* Info.plist */,
+				2E278E1826F8EF7000F3A1DF /* Teste da Solutis.postman_collection.json */,
 			);
 			path = SolutisTeste;
 			sourceTree = "<group>";
@@ -124,6 +127,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E278E1926F8EF7000F3A1DF /* Teste da Solutis.postman_collection.json in Resources */,
 				2EEC44F726F8C4A200C834AE /* LaunchScreen.storyboard in Resources */,
 				2EEC44F426F8C4A200C834AE /* Assets.xcassets in Resources */,
 				2EEC44F226F8C4A100C834AE /* Main.storyboard in Resources */,
