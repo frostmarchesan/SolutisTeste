@@ -14,6 +14,9 @@
 		2EEC44F226F8C4A100C834AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EEC44F026F8C4A100C834AE /* Main.storyboard */; };
 		2EEC44F426F8C4A200C834AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EEC44F326F8C4A200C834AE /* Assets.xcassets */; };
 		2EEC44F726F8C4A200C834AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EEC44F526F8C4A200C834AE /* LaunchScreen.storyboard */; };
+		BA34163F271E083A003490CA /* SecondScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34163E271E083A003490CA /* SecondScreenViewController.swift */; };
+		BA341643271E0C54003490CA /* reusableCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA341641271E0C54003490CA /* reusableCellTableViewCell.swift */; };
+		BA341644271E0C54003490CA /* reusableCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA341642271E0C54003490CA /* reusableCellTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		2EEC44F326F8C4A200C834AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EEC44F626F8C4A200C834AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EEC44F826F8C4A200C834AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA34163E271E083A003490CA /* SecondScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenViewController.swift; sourceTree = "<group>"; };
+		BA341641271E0C54003490CA /* reusableCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reusableCellTableViewCell.swift; sourceTree = "<group>"; };
+		BA341642271E0C54003490CA /* reusableCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = reusableCellTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +66,25 @@
 			children = (
 				2EEC44EA26F8C4A100C834AE /* AppDelegate.swift */,
 				2EEC44EC26F8C4A100C834AE /* SceneDelegate.swift */,
-				2EEC44EE26F8C4A100C834AE /* ViewController.swift */,
+				BA341640271E0BF5003490CA /* Controllers */,
+				BA341641271E0C54003490CA /* reusableCellTableViewCell.swift */,
+				BA341642271E0C54003490CA /* reusableCellTableViewCell.xib */,
 				2EEC44F026F8C4A100C834AE /* Main.storyboard */,
-				2EEC44F326F8C4A200C834AE /* Assets.xcassets */,
 				2EEC44F526F8C4A200C834AE /* LaunchScreen.storyboard */,
+				2EEC44F326F8C4A200C834AE /* Assets.xcassets */,
 				2EEC44F826F8C4A200C834AE /* Info.plist */,
 				2E278E1826F8EF7000F3A1DF /* Teste da Solutis.postman_collection.json */,
 			);
 			path = SolutisTeste;
+			sourceTree = "<group>";
+		};
+		BA341640271E0BF5003490CA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2EEC44EE26F8C4A100C834AE /* ViewController.swift */,
+				BA34163E271E083A003490CA /* SecondScreenViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA341644271E0C54003490CA /* reusableCellTableViewCell.xib in Resources */,
 				2E278E1926F8EF7000F3A1DF /* Teste da Solutis.postman_collection.json in Resources */,
 				2EEC44F726F8C4A200C834AE /* LaunchScreen.storyboard in Resources */,
 				2EEC44F426F8C4A200C834AE /* Assets.xcassets in Resources */,
@@ -141,9 +159,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA34163F271E083A003490CA /* SecondScreenViewController.swift in Sources */,
 				2EEC44EF26F8C4A100C834AE /* ViewController.swift in Sources */,
 				2EEC44EB26F8C4A100C834AE /* AppDelegate.swift in Sources */,
 				2EEC44ED26F8C4A100C834AE /* SceneDelegate.swift in Sources */,
+				BA341643271E0C54003490CA /* reusableCellTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
