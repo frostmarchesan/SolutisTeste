@@ -7,7 +7,7 @@
 
 import UIKit
 
-class reusableCellTableViewCell: UITableViewCell {
+class ReusableCellTableViewCell: UITableViewCell {
     
     @IBOutlet weak var operationLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -15,16 +15,16 @@ class reusableCellTableViewCell: UITableViewCell {
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var backgroundCellView: UIView!
     
+    @IBOutlet weak var whiteBackGroundCell: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        backgroundCellView.layer.cornerRadius = 20
+        dateLabel.textColor = .gray
+        descriptionLabel.textColor = .darkGray
+        whiteBackGroundCell.layer.cornerRadius = 20
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    
     
 }

@@ -10,14 +10,12 @@ import UIKit
 class HomeScreenViewController: UIViewController {
 
     var secondVC = SecondScreenViewController()
-    
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     
