@@ -9,23 +9,35 @@ import UIKit
 
 class HomeScreenViewController: UIViewController {
 
-    var secondVC = SecondScreenViewController()
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var invalidDataLabel: UILabel!
     
+    var user : User?
+    var validator = LoginValidator()
+    var secondVC = SecondScreenViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        invalidDataLabel.text = ""
     }
 
     
     @IBAction func loginPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "showSecondView", sender: self)
+        
+        
+        if (validator.checkEmail(email: loginTextField.text ?? "")) {
+            performSegue(withIdentifier: "showSecondView", sender: self)
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
+ 
+    
     
 }
 

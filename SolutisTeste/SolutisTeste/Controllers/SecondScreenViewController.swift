@@ -47,8 +47,6 @@ class SecondScreenViewController: UIViewController {
         gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
         return gradient
     }
-    
-    
 }
 
 extension SecondScreenViewController: UITableViewDataSource {

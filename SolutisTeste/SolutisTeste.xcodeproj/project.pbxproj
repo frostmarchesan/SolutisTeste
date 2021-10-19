@@ -18,6 +18,8 @@
 		BA341643271E0C54003490CA /* ReusableCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA341641271E0C54003490CA /* ReusableCellTableViewCell.swift */; };
 		BA341644271E0C54003490CA /* ReusableCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA341642271E0C54003490CA /* ReusableCellTableViewCell.xib */; };
 		BA341646271E13C1003490CA /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA341645271E13C1003490CA /* Statement.swift */; };
+		BA341651271F0E6A003490CA /* LoginValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA341650271F0E6A003490CA /* LoginValidator.swift */; };
+		BA341653271F0EA5003490CA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA341652271F0EA5003490CA /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		BA341641271E0C54003490CA /* ReusableCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCellTableViewCell.swift; sourceTree = "<group>"; };
 		BA341642271E0C54003490CA /* ReusableCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReusableCellTableViewCell.xib; sourceTree = "<group>"; };
 		BA341645271E13C1003490CA /* Statement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
+		BA341650271F0E6A003490CA /* LoginValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidator.swift; sourceTree = "<group>"; };
+		BA341652271F0EA5003490CA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,10 +74,9 @@
 				2EEC44EC26F8C4A100C834AE /* SceneDelegate.swift */,
 				BA341647271E13C6003490CA /* Model */,
 				BA341640271E0BF5003490CA /* Controllers */,
+				BA34164F271F0DB2003490CA /* View */,
 				BA341641271E0C54003490CA /* ReusableCellTableViewCell.swift */,
 				BA341642271E0C54003490CA /* ReusableCellTableViewCell.xib */,
-				2EEC44F026F8C4A100C834AE /* Main.storyboard */,
-				2EEC44F526F8C4A200C834AE /* LaunchScreen.storyboard */,
 				BA34164A271EF6AE003490CA /* Custom */,
 				2EEC44F326F8C4A200C834AE /* Assets.xcassets */,
 				2EEC44F826F8C4A200C834AE /* Info.plist */,
@@ -95,6 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				BA341645271E13C1003490CA /* Statement.swift */,
+				BA341650271F0E6A003490CA /* LoginValidator.swift */,
+				BA341652271F0EA5003490CA /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -104,6 +109,15 @@
 			children = (
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		BA34164F271F0DB2003490CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2EEC44F526F8C4A200C834AE /* LaunchScreen.storyboard */,
+				2EEC44F026F8C4A100C834AE /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,7 +196,9 @@
 				2EEC44EF26F8C4A100C834AE /* HomeViewController.swift in Sources */,
 				2EEC44EB26F8C4A100C834AE /* AppDelegate.swift in Sources */,
 				BA341646271E13C1003490CA /* Statement.swift in Sources */,
+				BA341653271F0EA5003490CA /* User.swift in Sources */,
 				2EEC44ED26F8C4A100C834AE /* SceneDelegate.swift in Sources */,
+				BA341651271F0E6A003490CA /* LoginValidator.swift in Sources */,
 				BA341643271E0C54003490CA /* ReusableCellTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
