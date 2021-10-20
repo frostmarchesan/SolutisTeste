@@ -20,6 +20,9 @@
 		BA341646271E13C1003490CA /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA341645271E13C1003490CA /* Statement.swift */; };
 		BA341651271F0E6A003490CA /* LoginValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA341650271F0E6A003490CA /* LoginValidator.swift */; };
 		BA341653271F0EA5003490CA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA341652271F0EA5003490CA /* User.swift */; };
+		BA8EBA2E271F456B00D41D55 /* ServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8EBA2D271F456B00D41D55 /* ServiceRequest.swift */; };
+		BA8EBA31271F483300D41D55 /* LoginJsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8EBA30271F483300D41D55 /* LoginJsonResponse.swift */; };
+		BA8EBA33271F487600D41D55 /* StatementJsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8EBA32271F487600D41D55 /* StatementJsonResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		BA341645271E13C1003490CA /* Statement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
 		BA341650271F0E6A003490CA /* LoginValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidator.swift; sourceTree = "<group>"; };
 		BA341652271F0EA5003490CA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BA8EBA2D271F456B00D41D55 /* ServiceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequest.swift; sourceTree = "<group>"; };
+		BA8EBA30271F483300D41D55 /* LoginJsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginJsonResponse.swift; sourceTree = "<group>"; };
+		BA8EBA32271F487600D41D55 /* StatementJsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementJsonResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +81,7 @@
 				BA341647271E13C6003490CA /* Model */,
 				BA341640271E0BF5003490CA /* Controllers */,
 				BA34164F271F0DB2003490CA /* View */,
-				BA341641271E0C54003490CA /* ReusableCellTableViewCell.swift */,
-				BA341642271E0C54003490CA /* ReusableCellTableViewCell.xib */,
+				BA8EBA2F271F457100D41D55 /* Service */,
 				BA34164A271EF6AE003490CA /* Custom */,
 				2EEC44F326F8C4A200C834AE /* Assets.xcassets */,
 				2EEC44F826F8C4A200C834AE /* Info.plist */,
@@ -90,6 +95,7 @@
 			children = (
 				2EEC44EE26F8C4A100C834AE /* HomeViewController.swift */,
 				BA34163E271E083A003490CA /* SecondScreenViewController.swift */,
+				BA341641271E0C54003490CA /* ReusableCellTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -98,8 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				BA341645271E13C1003490CA /* Statement.swift */,
-				BA341650271F0E6A003490CA /* LoginValidator.swift */,
 				BA341652271F0EA5003490CA /* User.swift */,
+				BA341650271F0E6A003490CA /* LoginValidator.swift */,
+				BA8EBA34271F487B00D41D55 /* JSON Models */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -114,10 +121,28 @@
 		BA34164F271F0DB2003490CA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2EEC44F526F8C4A200C834AE /* LaunchScreen.storyboard */,
 				2EEC44F026F8C4A100C834AE /* Main.storyboard */,
+				BA341642271E0C54003490CA /* ReusableCellTableViewCell.xib */,
+				2EEC44F526F8C4A200C834AE /* LaunchScreen.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BA8EBA2F271F457100D41D55 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BA8EBA2D271F456B00D41D55 /* ServiceRequest.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		BA8EBA34271F487B00D41D55 /* JSON Models */ = {
+			isa = PBXGroup;
+			children = (
+				BA8EBA30271F483300D41D55 /* LoginJsonResponse.swift */,
+				BA8EBA32271F487600D41D55 /* StatementJsonResponse.swift */,
+			);
+			path = "JSON Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,9 +219,12 @@
 			files = (
 				BA34163F271E083A003490CA /* SecondScreenViewController.swift in Sources */,
 				2EEC44EF26F8C4A100C834AE /* HomeViewController.swift in Sources */,
+				BA8EBA31271F483300D41D55 /* LoginJsonResponse.swift in Sources */,
 				2EEC44EB26F8C4A100C834AE /* AppDelegate.swift in Sources */,
 				BA341646271E13C1003490CA /* Statement.swift in Sources */,
 				BA341653271F0EA5003490CA /* User.swift in Sources */,
+				BA8EBA33271F487600D41D55 /* StatementJsonResponse.swift in Sources */,
+				BA8EBA2E271F456B00D41D55 /* ServiceRequest.swift in Sources */,
 				2EEC44ED26F8C4A100C834AE /* SceneDelegate.swift in Sources */,
 				BA341651271F0E6A003490CA /* LoginValidator.swift in Sources */,
 				BA341643271E0C54003490CA /* ReusableCellTableViewCell.swift in Sources */,
