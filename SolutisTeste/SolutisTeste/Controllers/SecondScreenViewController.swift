@@ -12,23 +12,21 @@ class SecondScreenViewController: UIViewController {
     var statements: [Statement] = [
         Statement(operation: "", description: "", amount: 123.45),
         Statement(operation: "", description: "", amount: 12.34),
-        Statement(operation: "", description: "", amount: -98.34)
-        ,
-        Statement(operation: "", description: "", amount: -98.34)
-        ,
-        Statement(operation: "", description: "", amount: -98.34)
-        ,
-        Statement(operation: "", description: "", amount: -98.34)
-        ,
+        Statement(operation: "", description: "", amount: -98.34),
+        Statement(operation: "", description: "", amount: -98.34),
+        Statement(operation: "", description: "", amount: -98.34),
+        Statement(operation: "", description: "", amount: -98.34),
         Statement(operation: "", description: "", amount: -98.34),
         Statement(operation: "", description: "", amount: -98.34)
     ]
-//    var statements: [Statement] = [
-//        Statement(operation: "", date: Date(0), description: "", amount: 123.45),
-//        Statement(operation: "", date: Date.now, description: "", amount: 12.34),
-//        Statement(operation: "", date: Date.now, description: "", amount: -98.34)
-//    ]
+
+    var userName: String?
+    var cpf: String?
+    var balance: Double?
     
+    @IBOutlet weak var usernameOutletLabel: UILabel!
+    @IBOutlet weak var cpfOutletLabel: UILabel!
+    @IBOutlet weak var balanceOutletLabel: UILabel!
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var statementTableView: UITableView!
     
@@ -37,6 +35,18 @@ class SecondScreenViewController: UIViewController {
         statementTableView.dataSource = self
         statementTableView.register(UINib(nibName: "ReusableCellTableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCellTableViewCell")
         bgView.layer.insertSublayer(createGradient(), at: 0)
+        print(userName)
+        populateLabels(username: userName ?? "", cpf: cpf ?? "", balance: balance ?? 0.0)
+        
+    }
+    
+    func populateLabels (username: String, cpf: String, balance: Double) {
+        usernameOutletLabel.text = username
+        cpfOutletLabel.text = cpf
+        let amount = String(format: "%.2f", balance)
+        let brazilianAmount = amount.replacingOccurrences(of: ".", with: ",")
+        print(brazilianAmount)
+        balanceOutletLabel.text = "R$ \(brazilianAmount)"
     }
     
     func createGradient () -> CAGradientLayer {
@@ -47,8 +57,6 @@ class SecondScreenViewController: UIViewController {
         gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
         return gradient
     }
-    
-    
 }
 
 extension SecondScreenViewController: UITableViewDataSource {

@@ -34,24 +34,33 @@
                                     <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MYg-ei-tnk"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Fd-PB-JOS">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="teste@teste.com.br" borderStyle="roundedRect" placeholder="User" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8Fd-PB-JOS">
                                 <rect key="frame" x="60" y="351" width="294" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O0i-an-fQN">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="abc123@" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="O0i-an-fQN">
                                 <rect key="frame" x="60" y="409" width="294" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail ou senha inválidos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9U-rK-Qfx">
+                                <rect key="frame" x="60" y="322" width="199" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
+                            <constraint firstItem="8Fd-PB-JOS" firstAttribute="top" secondItem="R9U-rK-Qfx" secondAttribute="bottom" constant="8" id="04h-Nc-BVj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="O0i-an-fQN" secondAttribute="trailing" constant="60" id="4Hg-Xl-oy0"/>
                             <constraint firstItem="O0i-an-fQN" firstAttribute="top" secondItem="8Fd-PB-JOS" secondAttribute="bottom" constant="24" id="Blc-RZ-USN"/>
+                            <constraint firstItem="R9U-rK-Qfx" firstAttribute="leading" secondItem="8Fd-PB-JOS" secondAttribute="leading" id="Kqe-SN-OZm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xhn-uY-iDX" secondAttribute="trailing" constant="87" id="PZF-vz-deD"/>
                             <constraint firstItem="8Fd-PB-JOS" firstAttribute="top" secondItem="xhn-uY-iDX" secondAttribute="bottom" constant="116" id="VeW-cg-5UL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R9U-rK-Qfx" secondAttribute="trailing" constant="155" id="bu8-tz-nOg"/>
                             <constraint firstItem="8Fd-PB-JOS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="cWa-ew-wuL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8Fd-PB-JOS" secondAttribute="trailing" constant="60" id="eJJ-73-2U8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VqQ-hq-hJt" secondAttribute="trailing" constant="120" id="fZ0-pq-my5"/>
@@ -63,6 +72,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="invalidDataLabel" destination="R9U-rK-Qfx" id="p3J-Wz-ZYU"/>
                         <outlet property="loginTextField" destination="8Fd-PB-JOS" id="07I-8f-1lb"/>
                         <outlet property="passwordTextField" destination="O0i-an-fQN" id="wGh-9Z-NFZ"/>
                         <segue destination="8pc-b4-5Ln" kind="modal" identifier="showSecondView" modalPresentationStyle="fullScreen" id="XbR-Vb-xkn"/>
@@ -89,9 +99,9 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="BE5-Yd-hPR">
                                                 <rect key="frame" x="20" y="40" width="293" height="202"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOf-ga-Dfg">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HOf-ga-Dfg">
                                                         <rect key="frame" x="0.0" y="0.0" width="293" height="31"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -104,7 +114,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF/CNPJ numbers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OES-q8-h5s">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF/CNPJ numbers" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OES-q8-h5s">
                                                                 <rect key="frame" x="0.0" y="30.5" width="293" height="30"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                                 <nil key="textColor"/>
@@ -121,7 +131,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvA-eS-VT3">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvA-eS-VT3">
                                                                 <rect key="frame" x="0.0" y="30.5" width="293" height="30"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                                 <nil key="textColor"/>
@@ -183,8 +193,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="0hz-K0-qrb"/>
                     <connections>
+                        <outlet property="balanceOutletLabel" destination="KvA-eS-VT3" id="6SD-OK-mkl"/>
                         <outlet property="bgView" destination="24u-t8-Ffc" id="jgf-Pt-U81"/>
+                        <outlet property="cpfOutletLabel" destination="OES-q8-h5s" id="fWK-tl-9h9"/>
                         <outlet property="statementTableView" destination="p6H-LE-9V9" id="i5M-Y8-Lc9"/>
+                        <outlet property="usernameOutletLabel" destination="HOf-ga-Dfg" id="Gpw-kZ-4bz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeh-0n-mXb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -200,6 +213,9 @@
         </namedColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
