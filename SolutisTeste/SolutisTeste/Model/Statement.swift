@@ -7,9 +7,8 @@
 
 import Foundation
 
-struct Statement {
-    let operation: String
-//    let date: Date
-    let description: String
-    let amount: Double
+struct Statement: Codable {
+    let data: String
+    let descricao: String
+    let valor: Double
 }

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2E278E1926F8EF7000F3A1DF /* Teste da Solutis.postman_collection.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E278E1826F8EF7000F3A1DF /* Teste da Solutis.postman_collection.json */; };
+		2EE5EA7A2721A8C5004FCD23 /* CustomNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5EA792721A8C5004FCD23 /* CustomNames.swift */; };
+		2EE5EA7D2721DE28004FCD23 /* CustomCPFFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5EA7C2721DE28004FCD23 /* CustomCPFFormatter.swift */; };
+		2EE5EA7F272208CD004FCD23 /* CustomNumberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5EA7E272208CD004FCD23 /* CustomNumberModel.swift */; };
 		2EEC44EB26F8C4A100C834AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC44EA26F8C4A100C834AE /* AppDelegate.swift */; };
 		2EEC44ED26F8C4A100C834AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC44EC26F8C4A100C834AE /* SceneDelegate.swift */; };
 		2EEC44EF26F8C4A100C834AE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC44EE26F8C4A100C834AE /* HomeViewController.swift */; };
@@ -27,6 +30,9 @@
 
 /* Begin PBXFileReference section */
 		2E278E1826F8EF7000F3A1DF /* Teste da Solutis.postman_collection.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "Teste da Solutis.postman_collection.json"; path = "../../Teste da Solutis.postman_collection.json"; sourceTree = "<group>"; };
+		2EE5EA792721A8C5004FCD23 /* CustomNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNames.swift; sourceTree = "<group>"; };
+		2EE5EA7C2721DE28004FCD23 /* CustomCPFFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCPFFormatter.swift; sourceTree = "<group>"; };
+		2EE5EA7E272208CD004FCD23 /* CustomNumberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNumberModel.swift; sourceTree = "<group>"; };
 		2EEC44E726F8C4A100C834AE /* SolutisTeste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolutisTeste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EEC44EA26F8C4A100C834AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EEC44EC26F8C4A100C834AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +63,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2EE5EA7B2721A8CA004FCD23 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				2EE5EA792721A8C5004FCD23 /* CustomNames.swift */,
+				2EE5EA7C2721DE28004FCD23 /* CustomCPFFormatter.swift */,
+				2EE5EA7E272208CD004FCD23 /* CustomNumberModel.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		2EEC44DE26F8C4A100C834AE = {
 			isa = PBXGroup;
 			children = (
@@ -82,7 +98,7 @@
 				BA341640271E0BF5003490CA /* Controllers */,
 				BA34164F271F0DB2003490CA /* View */,
 				BA8EBA2F271F457100D41D55 /* Service */,
-				BA34164A271EF6AE003490CA /* Custom */,
+				2EE5EA7B2721A8CA004FCD23 /* Custom */,
 				2EEC44F326F8C4A200C834AE /* Assets.xcassets */,
 				2EEC44F826F8C4A200C834AE /* Info.plist */,
 				2E278E1826F8EF7000F3A1DF /* Teste da Solutis.postman_collection.json */,
@@ -109,13 +125,6 @@
 				BA8EBA34271F487B00D41D55 /* JSON Models */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		BA34164A271EF6AE003490CA /* Custom */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Custom;
 			sourceTree = "<group>";
 		};
 		BA34164F271F0DB2003490CA /* View */ = {
@@ -221,13 +230,16 @@
 				2EEC44EF26F8C4A100C834AE /* HomeViewController.swift in Sources */,
 				BA8EBA31271F483300D41D55 /* LoginJsonResponse.swift in Sources */,
 				2EEC44EB26F8C4A100C834AE /* AppDelegate.swift in Sources */,
+				2EE5EA7D2721DE28004FCD23 /* CustomCPFFormatter.swift in Sources */,
 				BA341646271E13C1003490CA /* Statement.swift in Sources */,
 				BA341653271F0EA5003490CA /* User.swift in Sources */,
+				2EE5EA7F272208CD004FCD23 /* CustomNumberModel.swift in Sources */,
 				BA8EBA33271F487600D41D55 /* StatementJsonResponse.swift in Sources */,
 				BA8EBA2E271F456B00D41D55 /* ServiceRequest.swift in Sources */,
 				2EEC44ED26F8C4A100C834AE /* SceneDelegate.swift in Sources */,
 				BA341651271F0E6A003490CA /* LoginValidator.swift in Sources */,
 				BA341643271E0C54003490CA /* ReusableCellTableViewCell.swift in Sources */,
+				2EE5EA7A2721A8C5004FCD23 /* CustomNames.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

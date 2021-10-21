@@ -14,9 +14,9 @@ class HomeScreenViewController: UIViewController {
     @IBOutlet weak var invalidDataLabel: UILabel!
     
     var user : User?
-//    var secondVC : SecondScreenViewController?
     var validator = LoginValidator()
     var loginRequest = ServiceRequest()
+    var customCPF = CustomCPFFormatter()
     let loginUrl = "https://api.mobile.test.solutis.xyz/login"
     let statementURL = ""
     
@@ -32,7 +32,7 @@ class HomeScreenViewController: UIViewController {
         var passwordCheck : Bool = validator.checkPassword(password: passwordTextField.text ?? "")
         
         if (loginCheck && passwordCheck) {
-            loginRequest.performRequest(urlString: loginUrl, userLogin: loginTextField.text ?? "", userPassword: passwordTextField.text ?? "") { result in
+            loginRequest.performLoginRequest(urlString: loginUrl, userLogin: loginTextField.text ?? "", userPassword: passwordTextField.text ?? "") { result in
                 switch result{
                 case .success(let userResult):
                     DispatchQueue.main.async {
@@ -53,8 +53,9 @@ class HomeScreenViewController: UIViewController {
         if segue.identifier == "showSecondView" {
             let secondVC = segue.destination as! SecondScreenViewController
             secondVC.userName = user!.nome
-            secondVC.cpf = user?.cpf
+            secondVC.cpf = customCPF.cpfFormatter(cpfString: user?.cpf ?? "")
             secondVC.balance = user?.saldo
+            secondVC.token = user?.token
         }
     }
 }
