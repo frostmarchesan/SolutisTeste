@@ -9,20 +9,14 @@ import UIKit
 
 class SecondScreenViewController: UIViewController {
 
-    var statements: [Statement] = [
-        Statement(operation: "", description: "", amount: 123.45),
-        Statement(operation: "", description: "", amount: 12.34),
-        Statement(operation: "", description: "", amount: -98.34),
-        Statement(operation: "", description: "", amount: -98.34),
-        Statement(operation: "", description: "", amount: -98.34),
-        Statement(operation: "", description: "", amount: -98.34),
-        Statement(operation: "", description: "", amount: -98.34),
-        Statement(operation: "", description: "", amount: -98.34)
-    ]
-
+    var customModel = CustomNames()
+    var statements : [Statement] = []
+    var statementRequest = ServiceRequest()
+    var amountRequest = CustomNumberModel()
     var userName: String?
     var cpf: String?
     var balance: Double?
+    var token: String?
     
     @IBOutlet weak var usernameOutletLabel: UILabel!
     @IBOutlet weak var cpfOutletLabel: UILabel!
@@ -35,18 +29,26 @@ class SecondScreenViewController: UIViewController {
         statementTableView.dataSource = self
         statementTableView.register(UINib(nibName: "ReusableCellTableViewCell", bundle: nil), forCellReuseIdentifier: "ReusableCellTableViewCell")
         bgView.layer.insertSublayer(createGradient(), at: 0)
-        print(userName)
-        populateLabels(username: userName ?? "", cpf: cpf ?? "", balance: balance ?? 0.0)
         
+        populateLabels(username: userName ?? "", cpf: cpf ?? "", balance: balance ?? 0.0)
+
+        statementRequest.performStatementRequest(urlString: "https://api.mobile.test.solutis.xyz/extrato", userToken: token ?? "") { result in
+            switch result{
+            case .success(let statementResult):
+                DispatchQueue.main.async {
+                    self.statements = statementResult
+                    self.statementTableView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     func populateLabels (username: String, cpf: String, balance: Double) {
         usernameOutletLabel.text = username
         cpfOutletLabel.text = cpf
-        let amount = String(format: "%.2f", balance)
-        let brazilianAmount = amount.replacingOccurrences(of: ".", with: ",")
-        print(brazilianAmount)
-        balanceOutletLabel.text = "R$ \(brazilianAmount)"
+        balanceOutletLabel.text = "R$ \(amountRequest.getNumber(amount: balance))"
     }
     
     func createGradient () -> CAGradientLayer {
@@ -66,9 +68,13 @@ extension SecondScreenViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let message = statements[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCellTableViewCell", for: indexPath) as! ReusableCellTableViewCell
+        cell.operationLabel.text = customModel.customOperationLabels(description: statements[indexPath.row].descricao)
+        cell.dateLabel.text = customModel.customDateLabels(date: statements[indexPath.row].data)
+        cell.descriptionLabel.text = statements[indexPath.row].descricao
+        cell.amountLabel.textColor = customModel.customAmountColor(amount: statements[indexPath.row].valor)
+        cell.amountLabel.text = customModel.customAmountLabel(amount: statements[indexPath.row].valor)
         return cell
-
     }
+
 }
