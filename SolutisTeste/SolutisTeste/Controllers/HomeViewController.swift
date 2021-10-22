@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import KeychainSwift
 
 class HomeScreenViewController: UIViewController {
     
@@ -17,6 +18,7 @@ class HomeScreenViewController: UIViewController {
     var validator = LoginValidator()
     var loginRequest = ServiceRequest()
     var customCPF = CustomCPFFormatter()
+    let userKeychain = KeychainSwift()
     let loginUrl = "https://api.mobile.test.solutis.xyz/login"
     let statementURL = ""
     
@@ -24,8 +26,19 @@ class HomeScreenViewController: UIViewController {
         super.viewDidLoad()
         loginTextField.textColor = .systemGray
         invalidDataLabel.isHidden = true
+        if (userKeychain.get("userLogin") != nil) {
+            loginTextField.text = userKeychain.get("userLogin")
+        }
     }
     
+    @IBAction func saveUserLoginSwitch(_ sender: UISwitch) {
+        if (sender.isOn) {
+            userKeychain.set(loginTextField.text ?? "", forKey: "userLogin")
+        } else {
+            userKeychain.delete("userLogin")
+        }
+        
+    }
     
     @IBAction func loginPressed(_ sender: UIButton) {
         var loginCheck : Bool = validator.checkUserLog(entry: loginTextField.text ?? "")
