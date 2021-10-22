@@ -7,6 +7,7 @@
 
 import UIKit
 import KeychainSwift
+import CircleLoading
 
 class HomeScreenViewController: UIViewController {
     
@@ -14,11 +15,14 @@ class HomeScreenViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var invalidDataLabel: UILabel!
     
+    var saveUser : Bool = true
     var user : User?
     var validator = LoginValidator()
     var loginRequest = ServiceRequest()
     var customCPF = CustomCPFFormatter()
-    let userKeychain = KeychainSwift()
+    let keyChain = KeyChainModel()
+    let image = UIImageView()
+    let circle = CircleLoading()
     let loginUrl = "https://api.mobile.test.solutis.xyz/login"
     let statementURL = ""
     
@@ -26,21 +30,24 @@ class HomeScreenViewController: UIViewController {
         super.viewDidLoad()
         loginTextField.textColor = .systemGray
         invalidDataLabel.isHidden = true
-        if (userKeychain.get("userLogin") != nil) {
-            loginTextField.text = userKeychain.get("userLogin")
+        if (keyChain.getData(key: "userLogin") != "") {
+            loginTextField.text = keyChain.getData(key: "userLogin")
         }
     }
     
     @IBAction func saveUserLoginSwitch(_ sender: UISwitch) {
         if (sender.isOn) {
-            userKeychain.set(loginTextField.text ?? "", forKey: "userLogin")
+            saveUser = true
         } else {
-            userKeychain.delete("userLogin")
+            saveUser = false
         }
         
     }
     
     @IBAction func loginPressed(_ sender: UIButton) {
+        
+//        showPopUpAlert()
+            
         var loginCheck : Bool = validator.checkUserLog(entry: loginTextField.text ?? "")
         var passwordCheck : Bool = validator.checkPassword(password: passwordTextField.text ?? "")
         
@@ -49,6 +56,14 @@ class HomeScreenViewController: UIViewController {
                 switch result{
                 case .success(let userResult):
                     DispatchQueue.main.async {
+                        if (self.saveUser) {
+                            self.keyChain.storeData(data: self.loginTextField.text ?? "", key: "userLogin")
+                        } else {
+                            self.keyChain.eraseData(key: "userLogin")
+                        }
+                        self.passwordTextField.text = ""
+                        self.circle.stop()
+                        
                         self.user = userResult
                         self.performSegue(withIdentifier: "showSecondView", sender: self)
                     }
@@ -59,6 +74,11 @@ class HomeScreenViewController: UIViewController {
         } else {
             loginTextField.textColor = .systemRed
             invalidDataLabel.isHidden = false
+            let sec : Double = 5.0
+            DispatchQueue.main.asyncAfter(deadline: .now() + sec) { [self] in
+                loginTextField.textColor = .systemGray
+                invalidDataLabel.isHidden = true
+            }
         }
     }
     
@@ -71,5 +91,16 @@ class HomeScreenViewController: UIViewController {
             secondVC.token = user?.token
         }
     }
+    
+//    func showPopUpAlert () {
+//        circle.colors(color1: UIColor.blue, color2: UIColor.lightGray, color3: UIColor.systemBlue)
+//        image.addSubview(circle)
+//        circle.start()
+//
+//        let alert = UIAlertController(title: "Loading", message: "", preferredStyle: .alert)
+//        alert.view?.addSubview(image)
+//        present(alert, animated: true)
+//    }
+    
 }
 

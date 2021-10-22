@@ -45,6 +45,14 @@ class SecondScreenViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func logoffPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "logoffSegue", sender: self)
+        
+    }
+    
+    
+    
     func populateLabels (username: String, cpf: String, balance: Double) {
         usernameOutletLabel.text = username
         cpfOutletLabel.text = cpf
