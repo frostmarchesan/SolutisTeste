@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,7 @@
 		2EEC44F226F8C4A100C834AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EEC44F026F8C4A100C834AE /* Main.storyboard */; };
 		2EEC44F426F8C4A200C834AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EEC44F326F8C4A200C834AE /* Assets.xcassets */; };
 		2EEC44F726F8C4A200C834AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EEC44F526F8C4A200C834AE /* LaunchScreen.storyboard */; };
+		BA22BE3E2723363100934993 /* KeyChainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA22BE3D2723363100934993 /* KeyChainModel.swift */; };
 		BA34163F271E083A003490CA /* SecondScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34163E271E083A003490CA /* SecondScreenViewController.swift */; };
 		BA341643271E0C54003490CA /* ReusableCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA341641271E0C54003490CA /* ReusableCellTableViewCell.swift */; };
 		BA341644271E0C54003490CA /* ReusableCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA341642271E0C54003490CA /* ReusableCellTableViewCell.xib */; };
@@ -45,6 +46,7 @@
 		2EEC44F826F8C4A200C834AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6947006DE039815A47900BB5 /* Pods-SolutisTeste.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SolutisTeste.debug.xcconfig"; path = "Target Support Files/Pods-SolutisTeste/Pods-SolutisTeste.debug.xcconfig"; sourceTree = "<group>"; };
 		9E688E8DF38C22CC9982EA9A /* Pods_SolutisTeste.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SolutisTeste.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA22BE3D2723363100934993 /* KeyChainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainModel.swift; sourceTree = "<group>"; };
 		BA34163E271E083A003490CA /* SecondScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenViewController.swift; sourceTree = "<group>"; };
 		BA341641271E0C54003490CA /* ReusableCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCellTableViewCell.swift; sourceTree = "<group>"; };
 		BA341642271E0C54003490CA /* ReusableCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReusableCellTableViewCell.xib; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				BA341645271E13C1003490CA /* Statement.swift */,
 				BA341652271F0EA5003490CA /* User.swift */,
 				BA341650271F0E6A003490CA /* LoginValidator.swift */,
+				BA22BE3D2723363100934993 /* KeyChainModel.swift */,
 				BA8EBA34271F487B00D41D55 /* JSON Models */,
 			);
 			path = Model;
@@ -175,7 +178,6 @@
 				6947006DE039815A47900BB5 /* Pods-SolutisTeste.debug.xcconfig */,
 				2D034FD73D7FAAF2FE29582B /* Pods-SolutisTeste.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -298,6 +300,7 @@
 				BA34163F271E083A003490CA /* SecondScreenViewController.swift in Sources */,
 				2EEC44EF26F8C4A100C834AE /* HomeViewController.swift in Sources */,
 				BA8EBA31271F483300D41D55 /* LoginJsonResponse.swift in Sources */,
+				BA22BE3E2723363100934993 /* KeyChainModel.swift in Sources */,
 				2EEC44EB26F8C4A100C834AE /* AppDelegate.swift in Sources */,
 				2EE5EA7D2721DE28004FCD23 /* CustomCPFFormatter.swift in Sources */,
 				BA341646271E13C1003490CA /* Statement.swift in Sources */,
@@ -459,6 +462,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T65VFPBJU3;
 				INFOPLIST_FILE = SolutisTeste/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -479,6 +483,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T65VFPBJU3;
 				INFOPLIST_FILE = SolutisTeste/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

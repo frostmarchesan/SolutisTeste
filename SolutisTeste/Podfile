@@ -8,5 +8,6 @@ target 'SolutisTeste' do
   # Pods for SolutisTeste
 
 pod 'KeychainSwift', '~> 19.0'
+pod 'CircleLoading'
 
 end
