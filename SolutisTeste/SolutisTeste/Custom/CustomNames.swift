@@ -52,5 +52,4 @@ struct CustomNames {
             return .systemGreen
         }
     }
-    
 }

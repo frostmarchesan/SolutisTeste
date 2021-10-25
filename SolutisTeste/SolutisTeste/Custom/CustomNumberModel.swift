@@ -9,16 +9,10 @@ import Foundation
 
 struct CustomNumberModel {
     
-    func getNumber (amount: Double) -> String {
-        var textAmount = String(format: "%.2f", amount)
-        textAmount = textAmount.replacingOccurrences(of: ".", with: ",")
-        var count = 6
-        while (textAmount.count > count) {
-            if (textAmount.count > count) {
-                textAmount.insert(".", at: textAmount.index(textAmount.endIndex, offsetBy: -count))
-            }
-            count += 4
-        }
-        return textAmount
+    func currencyConverter (amount: Double) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        numberFormatter.locale = Locale(identifier: "br_BR")
+        return numberFormatter.string(from: NSNumber(value: amount))?.replacingOccurrences(of: "R$", with: "") ?? "0.0"
     }
 }
