@@ -76,7 +76,7 @@ extension SecondScreenViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCellTableViewCell", for: indexPath) as! ReusableCellTableViewCell
-        cell.operationLabel.text = customModel.customOperationLabels(description: statements[indexPath.row].descricao)
+        cell.operationLabel.text = customModel.customOperationLabels(amount: statements[indexPath.row].valor)
         cell.dateLabel.text = customModel.customDateLabels(date: statements[indexPath.row].data)
         cell.descriptionLabel.text = statements[indexPath.row].descricao
         cell.amountLabel.textColor = customModel.customAmountColor(amount: statements[indexPath.row].valor)
@@ -84,6 +84,9 @@ extension SecondScreenViewController: UITableViewDataSource {
         return cell
     }
     
+    
+    
+        
     func showCircleLoading () {
         if (circleViewOutlet.isHidden) {
             circleViewOutlet.colors(color1: UIColor.blue, color2: UIColor.lightGray, color3: UIColor.systemBlue)

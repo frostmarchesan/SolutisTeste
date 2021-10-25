@@ -13,16 +13,11 @@ struct CustomNames {
     let pagamento = "Pagamento"
     let recebimento = "Recebimento"
     
-    func customOperationLabels (description: String) -> String {
-        //extract the first word of the description String provided by the API call
-        let operation = description.components(separatedBy: " ").first
-        switch operation {
-        case "Pagamento", "Transferencia":
+    func customOperationLabels (amount: Double) -> String {
+        if (amount <= 0) {
             return pagamento
-        case "PIX", "Deposito":
+        } else {
             return recebimento
-        default:
-            return "Não identificado"
         }
     }
     
