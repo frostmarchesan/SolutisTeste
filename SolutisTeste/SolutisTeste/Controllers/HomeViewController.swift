@@ -13,7 +13,7 @@ class HomeScreenViewController: UIViewController {
     
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var invalidDataLabel: UILabel!
+    @IBOutlet weak var circleLoading: CircleLoading!
     
     var saveUser : Bool = true
     var user : User?
@@ -22,14 +22,13 @@ class HomeScreenViewController: UIViewController {
     var customCPF = CustomCPFFormatter()
     let keyChain = KeyChainModel()
     let image = UIImageView()
-    let circle = CircleLoading()
     let loginUrl = "https://api.mobile.test.solutis.xyz/login"
     let statementURL = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loginTextField.textColor = .systemGray
-        invalidDataLabel.isHidden = true
         if (keyChain.getData(key: "userLogin") != "") {
             loginTextField.text = keyChain.getData(key: "userLogin")
         }
@@ -41,17 +40,16 @@ class HomeScreenViewController: UIViewController {
         } else {
             saveUser = false
         }
-        
     }
     
     @IBAction func loginPressed(_ sender: UIButton) {
         
-//        showPopUpAlert()
-            
         var loginCheck : Bool = validator.checkUserLog(entry: loginTextField.text ?? "")
         var passwordCheck : Bool = validator.checkPassword(password: passwordTextField.text ?? "")
         
         if (loginCheck && passwordCheck) {
+            showCircleLoading()
+
             loginRequest.performLoginRequest(urlString: loginUrl, userLogin: loginTextField.text ?? "", userPassword: passwordTextField.text ?? "") { result in
                 switch result{
                 case .success(let userResult):
@@ -62,23 +60,18 @@ class HomeScreenViewController: UIViewController {
                             self.keyChain.eraseData(key: "userLogin")
                         }
                         self.passwordTextField.text = ""
-                        self.circle.stop()
-                        
+                        self.dismissCircleLoading()
                         self.user = userResult
                         self.performSegue(withIdentifier: "showSecondView", sender: self)
                     }
                 case .failure(let error):
+                    self.dismissCircleLoading()
                     print(error)
                 }
             }
         } else {
-            loginTextField.textColor = .systemRed
-            invalidDataLabel.isHidden = false
-            let sec : Double = 5.0
-            DispatchQueue.main.asyncAfter(deadline: .now() + sec) { [self] in
-                loginTextField.textColor = .systemGray
-                invalidDataLabel.isHidden = true
-            }
+            alertController()
+            passwordTextField.text = ""
         }
     }
     
@@ -92,15 +85,24 @@ class HomeScreenViewController: UIViewController {
         }
     }
     
-//    func showPopUpAlert () {
-//        circle.colors(color1: UIColor.blue, color2: UIColor.lightGray, color3: UIColor.systemBlue)
-//        image.addSubview(circle)
-//        circle.start()
-//
-//        let alert = UIAlertController(title: "Loading", message: "", preferredStyle: .alert)
-//        alert.view?.addSubview(image)
-//        present(alert, animated: true)
-//    }
+    func showCircleLoading () {
+        if (circleLoading.isHidden) {
+            circleLoading.colors(color1: UIColor.blue, color2: UIColor.lightGray, color3: UIColor.systemBlue)
+            circleLoading.isHidden = false
+            circleLoading.start()
+        }
+    }
+    
+    func dismissCircleLoading () {
+        circleLoading.isHidden = true
+        circleLoading.stop()
+    }
+    
+    func alertController () {
+        let alert = UIAlertController(title: "", message: "E-mail ou senha incorretos.", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
     
 }
 

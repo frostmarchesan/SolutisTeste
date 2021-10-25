@@ -10,7 +10,6 @@ import Foundation
 struct LoginValidator {
     let emailRegex = "[A-Z0-9a-z.-_]+@[A-Z0-9a-z.-_]+\\.[A-Z0-9a-z.-_]"
     let passwordRegex = "(?=.*[a-z])(?=.*[!@#$%&*])(?=.*[0-9]).{6,}"
-    let passwordPattern = #"(?=.{6,})"# + #"(?=.*[a-z])"# + #"(?=.*\d)"# + #"(?=.*[ !$%&?._-])"#
     
     func checkUserLog(entry: String) -> Bool {
         if (checkEmail(email: entry)) {

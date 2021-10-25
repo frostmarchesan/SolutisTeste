@@ -10,7 +10,6 @@ import Foundation
 struct CustomCPFFormatter {
     func cpfFormatter (cpfString: String) -> String {
         var cpfArray : [Character] = []
-        // convert cpf string to an array of Int
         for letter in cpfString {
             cpfArray.append(letter)
         }
