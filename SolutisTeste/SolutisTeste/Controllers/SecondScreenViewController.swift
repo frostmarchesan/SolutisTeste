@@ -102,10 +102,10 @@ extension SecondScreenViewController: UITableViewDataSource {
     
     func logoffAlertController () {
         let alert = UIAlertController(title: "", message: "Deseja mesmo sair?", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Continuar", style: UIAlertAction.Style.default, handler: { action in
-            self.performSegue(withIdentifier: "logoffSegue", sender: self)
-        }))
+        
         alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Sair", style: UIAlertAction.Style.destructive, handler: { action in
+            self.performSegue(withIdentifier: "logoffSegue", sender: self)}))
         present(alert, animated: true, completion: nil)
     }
     

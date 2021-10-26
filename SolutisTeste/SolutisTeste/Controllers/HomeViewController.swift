@@ -14,6 +14,7 @@ class HomeScreenViewController: UIViewController {
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var circleLoading: CircleLoading!
+    @IBOutlet weak var loginButtonOutlet: UIButton!
     
     var saveUser : Bool = true
     var user : User?
@@ -28,9 +29,12 @@ class HomeScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginTextField.textColor = .systemGray
         if (keyChain.getData(key: "userLogin") != "") {
             loginTextField.text = keyChain.getData(key: "userLogin")
+        }
+        if (keyChain.getData(key: "userPassword") != "") {
+            passwordTextField.text = keyChain.getData(key: "userPassword")
+            print(" ****** \(passwordTextField.text)")
         }
     }
     
@@ -43,33 +47,45 @@ class HomeScreenViewController: UIViewController {
     }
     
     @IBAction func loginPressed(_ sender: UIButton) {
-        
+        loginButtonOutlet.isEnabled = false
         var loginCheck : Bool = validator.checkUserLog(entry: loginTextField.text ?? "")
         var passwordCheck : Bool = validator.checkPassword(password: passwordTextField.text ?? "")
         
         if (loginCheck && passwordCheck) {
             showCircleLoading()
-
-            loginRequest.performLoginRequest(urlString: loginUrl, userLogin: loginTextField.text ?? "", userPassword: passwordTextField.text ?? "") { result in
-                switch result{
-                case .success(let userResult):
-                    DispatchQueue.main.async {
-                        if (self.saveUser) {
-                            self.keyChain.storeData(data: self.loginTextField.text ?? "", key: "userLogin")
-                        } else {
-                            self.keyChain.eraseData(key: "userLogin")
+            do {
+            try loginRequest.performLoginRequest(urlString: loginUrl, userLogin: loginTextField.text ?? "", userPassword: passwordTextField.text ?? "") { result in
+                    switch result{
+                    case .success(let userResult):
+                        DispatchQueue.main.async {
+                            if (self.saveUser) {
+                                if (self.keyChain.getData(key: "userLogin") != "") {
+                                    self.keyChain.storeData(data: self.loginTextField.text ?? "", key: "userLogin")
+                                }
+                                if (self.keyChain.getData(key: "userPassword") != "") {
+                                    self.keyChain.storeData(data: self.passwordTextField.text ?? "", key: "userPassword")
+                                }
+                            } else {
+                                self.keyChain.eraseData(key: "userLogin")
+                                self.keyChain.eraseData(key: "userPassword")
+                            }
+                            self.passwordTextField.text = ""
+                            self.dismissCircleLoading()
+                            self.user = userResult
+                            self.performSegue(withIdentifier: "showSecondView", sender: self)
                         }
-                        self.passwordTextField.text = ""
-                        self.dismissCircleLoading()
-                        self.user = userResult
-                        self.performSegue(withIdentifier: "showSecondView", sender: self)
+                    case .failure(let error):
+                        DispatchQueue.main.async {
+                            self.dismissCircleLoading()
+                            self.loginButtonOutlet.isEnabled = true
+                            self.alertController()
+                            self.passwordTextField.text = ""
+                        }
                     }
-                case .failure(let error):
-                    self.dismissCircleLoading()
-                    print(error)
                 }
-            }
+            } catch {print("catch")}
         } else {
+            loginButtonOutlet.isEnabled = true
             alertController()
             passwordTextField.text = ""
         }
@@ -94,8 +110,11 @@ class HomeScreenViewController: UIViewController {
     }
     
     func dismissCircleLoading () {
-        circleLoading.isHidden = true
-        circleLoading.stop()
+        DispatchQueue.main.async {
+            self.circleLoading.isHidden = true
+            self.circleLoading.stop()
+        }
+        
     }
     
     func alertController () {
