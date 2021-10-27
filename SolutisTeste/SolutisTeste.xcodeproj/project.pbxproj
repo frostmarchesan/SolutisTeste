@@ -70,14 +70,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2EE5EA7B2721A8CA004FCD23 /* Custom */ = {
+		2EE5EA7B2721A8CA004FCD23 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				BA22BE3D2723363100934993 /* KeyChainModel.swift */,
+				BA341650271F0E6A003490CA /* LoginValidator.swift */,
 				2EE5EA792721A8C5004FCD23 /* CustomNames.swift */,
 				2EE5EA7C2721DE28004FCD23 /* CustomCPFFormatter.swift */,
 				2EE5EA7E272208CD004FCD23 /* CustomNumberModel.swift */,
 			);
-			path = Custom;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		2EEC44DE26F8C4A100C834AE = {
@@ -107,7 +109,7 @@
 				BA341640271E0BF5003490CA /* Controllers */,
 				BA34164F271F0DB2003490CA /* View */,
 				BA8EBA2F271F457100D41D55 /* Service */,
-				2EE5EA7B2721A8CA004FCD23 /* Custom */,
+				2EE5EA7B2721A8CA004FCD23 /* Utils */,
 				2EEC44F326F8C4A200C834AE /* Assets.xcassets */,
 				2EEC44F826F8C4A200C834AE /* Info.plist */,
 				2E278E1826F8EF7000F3A1DF /* Teste da Solutis.postman_collection.json */,
@@ -138,8 +140,6 @@
 			children = (
 				BA341645271E13C1003490CA /* Statement.swift */,
 				BA341652271F0EA5003490CA /* User.swift */,
-				BA341650271F0E6A003490CA /* LoginValidator.swift */,
-				BA22BE3D2723363100934993 /* KeyChainModel.swift */,
 				BA8EBA34271F487B00D41D55 /* JSON Models */,
 			);
 			path = Model;

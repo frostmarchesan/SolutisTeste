@@ -15,6 +15,7 @@ class HomeScreenViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var circleLoading: CircleLoading!
     @IBOutlet weak var loginButtonOutlet: UIButton!
+    @IBOutlet weak var switchButtonOutlet: UISwitch!
     
     var saveUser : Bool = true
     var user : User?
@@ -28,20 +29,24 @@ class HomeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if (keyChain.getData(key: "userLogin") != "") {
             loginTextField.text = keyChain.getData(key: "userLogin")
         }
-        if (keyChain.getData(key: "userPassword") != "") {
+        if (keyChain.getData(key: "userPassword") != "" && keyChain.getData(key: "boolean") == "true") {
             passwordTextField.text = keyChain.getData(key: "userPassword")
-            print(" ****** \(passwordTextField.text)")
+        }
+        if (keyChain.getData(key: "boolean") == "false"){
+            switchButtonOutlet.isOn = false
         }
     }
     
     @IBAction func saveUserLoginSwitch(_ sender: UISwitch) {
         if (sender.isOn) {
+            keyChain.storeData(data: "true", key: "boolean")
             saveUser = true
         } else {
+            switchButtonOutlet.isOn = false
+            keyChain.storeData(data: "false", key: "boolean")
             saveUser = false
         }
     }
@@ -59,14 +64,14 @@ class HomeScreenViewController: UIViewController {
                     case .success(let userResult):
                         DispatchQueue.main.async {
                             if (self.saveUser) {
-                                if (self.keyChain.getData(key: "userLogin") != "") {
+                                if (self.keyChain.getData(key: "userLogin") == "") {
                                     self.keyChain.storeData(data: self.loginTextField.text ?? "", key: "userLogin")
+                                    
                                 }
-                                if (self.keyChain.getData(key: "userPassword") != "") {
+                                if (self.keyChain.getData(key: "userPassword") == "" && self.keyChain.getData(key: "boolean") != "true") {
                                     self.keyChain.storeData(data: self.passwordTextField.text ?? "", key: "userPassword")
                                 }
                             } else {
-                                self.keyChain.eraseData(key: "userLogin")
                                 self.keyChain.eraseData(key: "userPassword")
                             }
                             self.passwordTextField.text = ""
