@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home Screen View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeScreenViewController" customModule="SolutisTeste" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="SolutisTeste" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,6 +46,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                                        <connections>
+                                                            <action selector="loginTextField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="c1G-R6-0du"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="O0i-an-fQN">
                                                         <rect key="frame" x="0.0" y="49" width="334" height="34"/>
@@ -64,7 +67,7 @@
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uqs-K0-kR5">
                                                                 <rect key="frame" x="285" y="0.0" width="51" height="31"/>
                                                                 <connections>
-                                                                    <action selector="saveUserLoginSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="9B8-z9-wkL"/>
+                                                                    <action selector="saveUserSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="JW0-xZ-9r3"/>
                                                                 </connections>
                                                             </switch>
                                                         </subviews>
@@ -84,7 +87,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MYg-ei-tnk"/>
+                                                    <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hd9-5X-Y2o"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -125,22 +128,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="vZL-Qg-hMC"/>
                     <connections>
-                        <outlet property="circleLoading" destination="8hU-UE-LWz" id="2f2-xq-gUf"/>
-                        <outlet property="loginButtonOutlet" destination="VqQ-hq-hJt" id="h5v-Pg-8SO"/>
-                        <outlet property="loginTextField" destination="8Fd-PB-JOS" id="07I-8f-1lb"/>
-                        <outlet property="passwordTextField" destination="O0i-an-fQN" id="wGh-9Z-NFZ"/>
-                        <outlet property="switchButtonOutlet" destination="Uqs-K0-kR5" id="MfD-tN-ieb"/>
-                        <segue destination="8pc-b4-5Ln" kind="modal" identifier="showSecondView" modalPresentationStyle="fullScreen" id="XbR-Vb-xkn"/>
+                        <outlet property="circleViewOutlet" destination="8hU-UE-LWz" id="MfC-4J-bBG"/>
+                        <outlet property="loginButtonOutlet" destination="VqQ-hq-hJt" id="3CG-Td-RCK"/>
+                        <outlet property="loginTextField" destination="8Fd-PB-JOS" id="bQd-S9-7bu"/>
+                        <outlet property="passwordTextField" destination="O0i-an-fQN" id="uQm-G9-9YH"/>
+                        <outlet property="switchButtonOutlet" destination="Uqs-K0-kR5" id="R7Q-Zw-3xV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="105.79710144927537" y="79.6875"/>
         </scene>
-        <!--Second Screen View Controller-->
+        <!--Extract View Controller-->
         <scene sceneID="lte-7t-Pmm">
             <objects>
-                <viewController id="8pc-b4-5Ln" customClass="SecondScreenViewController" customModule="SolutisTeste" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8pc-b4-5Ln" customClass="ExtractViewController" customModule="SolutisTeste" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yLU-gC-2ol">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,7 +209,7 @@
                                                 <rect key="frame" x="359" y="60" width="26" height="56"/>
                                                 <state key="normal" image="icon_logout"/>
                                                 <connections>
-                                                    <action selector="logoffPressed:" destination="8pc-b4-5Ln" eventType="touchUpInside" id="UAz-Jo-KwM"/>
+                                                    <action selector="logoffButtonPressed:" destination="8pc-b4-5Ln" eventType="touchUpInside" id="dvq-AG-vlF"/>
                                                     <segue destination="BYZ-38-t0r" kind="modal" identifier="logoffSegue" modalPresentationStyle="fullScreen" id="P7i-yd-l8c"/>
                                                 </connections>
                                             </button>
@@ -261,12 +263,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="0hz-K0-qrb"/>
                     <connections>
-                        <outlet property="balanceOutletLabel" destination="KvA-eS-VT3" id="6SD-OK-mkl"/>
-                        <outlet property="bgView" destination="24u-t8-Ffc" id="jgf-Pt-U81"/>
-                        <outlet property="circleViewOutlet" destination="UkW-Wl-hL2" id="66I-0c-sGg"/>
-                        <outlet property="cpfOutletLabel" destination="OES-q8-h5s" id="fWK-tl-9h9"/>
-                        <outlet property="statementTableView" destination="p6H-LE-9V9" id="i5M-Y8-Lc9"/>
-                        <outlet property="usernameOutletLabel" destination="HOf-ga-Dfg" id="Gpw-kZ-4bz"/>
+                        <outlet property="circleViewOutlet" destination="UkW-Wl-hL2" id="UgC-9R-p3C"/>
+                        <outlet property="extractTableViewOutlet" destination="p6H-LE-9V9" id="7hr-6I-bpB"/>
+                        <outlet property="userAmountLabelOutlet" destination="KvA-eS-VT3" id="p1K-Nm-YX9"/>
+                        <outlet property="userCPFLabelOutlet" destination="OES-q8-h5s" id="xaN-Ud-g81"/>
+                        <outlet property="userNameLabelOutlet" destination="HOf-ga-Dfg" id="3my-T7-bhp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeh-0n-mXb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
