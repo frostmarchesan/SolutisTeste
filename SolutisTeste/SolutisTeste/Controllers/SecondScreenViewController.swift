@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import CircleLoading
+import CircleLoadingViewPod
 
 class SecondScreenViewController: UIViewController {
 
@@ -18,13 +18,16 @@ class SecondScreenViewController: UIViewController {
     var cpf: String?
     var balance: Double?
     var token: String?
-    
+    let circle1 = CircleLines()
+    let circle2 = CircleLines()
+    let circle3 = CircleLines()
+
     @IBOutlet weak var usernameOutletLabel: UILabel!
     @IBOutlet weak var cpfOutletLabel: UILabel!
     @IBOutlet weak var balanceOutletLabel: UILabel!
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var statementTableView: UITableView!
-    @IBOutlet weak var circleViewOutlet: CircleLoading!
+    @IBOutlet weak var circleViewOutlet: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,15 +92,23 @@ extension SecondScreenViewController: UITableViewDataSource {
         
     func showCircleLoading () {
         if (circleViewOutlet.isHidden) {
-            circleViewOutlet.colors(color1: UIColor.blue, color2: UIColor.lightGray, color3: UIColor.systemBlue)
+            configureCircles()
             circleViewOutlet.isHidden = false
-            circleViewOutlet.start()
+            
+//            circleViewOutlet.colors(color1: UIColor.blue, color2: UIColor.lightGray, color3: UIColor.systemBlue)
+//            circleViewOutlet.start()
         }
     }
     
     func dismissCircleLoading () {
         circleViewOutlet.isHidden = true
-        circleViewOutlet.stop()
+        circle1.stopAnimation()
+        circle2.stopAnimation()
+        circle3.stopAnimation()
+        circle1.removeFromSuperview()
+        circle2.removeFromSuperview()
+        circle3.removeFromSuperview()
+//        circleViewOutlet.stop()
     }
     
     func logoffAlertController () {
@@ -107,6 +118,18 @@ extension SecondScreenViewController: UITableViewDataSource {
         alert.addAction(UIAlertAction(title: "Sair", style: UIAlertAction.Style.destructive, handler: { action in
             self.performSegue(withIdentifier: "logoffSegue", sender: self)}))
         present(alert, animated: true, completion: nil)
+    }
+    
+    func configureCircles() {
+        circleViewOutlet.addSubview(
+            circle1.configureCircle(view: circleViewOutlet, position: 60, width: 120, height: 120, color: UIColor.blue.cgColor, lineWidth: 6, strokeStart: 0.3, strokeEnd: 0.7, speed: 1))
+        
+        circleViewOutlet.addSubview(
+            circle2.configureCircle(view: circleViewOutlet, position: 50, width: 100, height: 100, color: UIColor.gray.cgColor, lineWidth: 6, strokeStart: 0.1, strokeEnd: 0.5, speed: 1.2))
+        
+        circleViewOutlet.addSubview(
+            circle3.configureCircle(view: circleViewOutlet, position: 40, width: 80, height: 80, color: UIColor.systemBlue.cgColor, lineWidth: 6, strokeStart: 0.5, strokeEnd: 0.8, speed: 1.5))
+        
     }
     
 }

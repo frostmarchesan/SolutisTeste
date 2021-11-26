@@ -1,0 +1,6 @@
+framework module CircleLoadingViewPod {
+  umbrella header "CircleLoadingViewPod-umbrella.h"
+
+  export *
+  module * { export * }
+}

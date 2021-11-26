@@ -1,9 +1,9 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## CircleLoading
+## CircleLoadingViewPod
 
-Copyright (c) 2017 goldmoment <nguyenvanvienqn@gmail.com>
+Copyright (c) 2021 frostmarchesan <55881881+frostmarchesan@users.noreply.github.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

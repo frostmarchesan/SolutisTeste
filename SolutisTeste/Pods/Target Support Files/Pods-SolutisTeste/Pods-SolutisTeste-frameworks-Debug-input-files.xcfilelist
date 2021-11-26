@@ -1,3 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-SolutisTeste/Pods-SolutisTeste-frameworks.sh
-${BUILT_PRODUCTS_DIR}/CircleLoading/CircleLoading.framework
+${BUILT_PRODUCTS_DIR}/CircleLoadingViewPod/CircleLoadingViewPod.framework
 ${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework
