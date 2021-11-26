@@ -1,20 +1,20 @@
 PODS:
-  - CircleLoading (0.1.1)
+  - CircleLoadingViewPod (0.2.0)
   - KeychainSwift (19.0.0)
 
 DEPENDENCIES:
-  - CircleLoading
+  - CircleLoadingViewPod
   - KeychainSwift (~> 19.0)
 
 SPEC REPOS:
   trunk:
-    - CircleLoading
+    - CircleLoadingViewPod
     - KeychainSwift
 
 SPEC CHECKSUMS:
-  CircleLoading: 7be0d228c0b52a00cfd9a6b5ddaa8720948e8b88
+  CircleLoadingViewPod: 6473ab567eb3582565ab44a372fd8817328ef6e1
   KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
 
-PODFILE CHECKSUM: 79e4d22b4bf1b6bdf20f5c128df562c79f0cd1ca
+PODFILE CHECKSUM: 21bec39f5b5e3b41ce2c16df6e53f12e8ff0cb67
 
 COCOAPODS: 1.11.2

@@ -28,6 +28,7 @@
 		BA8EBA2E271F456B00D41D55 /* ServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8EBA2D271F456B00D41D55 /* ServiceRequest.swift */; };
 		BA8EBA31271F483300D41D55 /* LoginJsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8EBA30271F483300D41D55 /* LoginJsonResponse.swift */; };
 		BA8EBA33271F487600D41D55 /* StatementJsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8EBA32271F487600D41D55 /* StatementJsonResponse.swift */; };
+		BABF09EB275118D8000BFAB4 /* CircleLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABF09EA275118D8000BFAB4 /* CircleLines.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		BA8EBA2D271F456B00D41D55 /* ServiceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequest.swift; sourceTree = "<group>"; };
 		BA8EBA30271F483300D41D55 /* LoginJsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginJsonResponse.swift; sourceTree = "<group>"; };
 		BA8EBA32271F487600D41D55 /* StatementJsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementJsonResponse.swift; sourceTree = "<group>"; };
+		BABF09EA275118D8000BFAB4 /* CircleLines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleLines.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				2EEC44EE26F8C4A100C834AE /* HomeViewController.swift */,
 				BA34163E271E083A003490CA /* SecondScreenViewController.swift */,
 				BA341641271E0C54003490CA /* ReusableCellTableViewCell.swift */,
+				BABF09EA275118D8000BFAB4 /* CircleLines.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				BA341646271E13C1003490CA /* Statement.swift in Sources */,
 				BA341653271F0EA5003490CA /* User.swift in Sources */,
 				2EE5EA7F272208CD004FCD23 /* CustomNumberModel.swift in Sources */,
+				BABF09EB275118D8000BFAB4 /* CircleLines.swift in Sources */,
 				BA8EBA33271F487600D41D55 /* StatementJsonResponse.swift in Sources */,
 				BA8EBA2E271F456B00D41D55 /* ServiceRequest.swift in Sources */,
 				2EEC44ED26F8C4A100C834AE /* SceneDelegate.swift in Sources */,
@@ -388,7 +392,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -443,7 +447,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
