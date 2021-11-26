@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double CircleLoadingVersionNumber;
-FOUNDATION_EXPORT const unsigned char CircleLoadingVersionString[];
+FOUNDATION_EXPORT double CircleLoadingViewPodVersionNumber;
+FOUNDATION_EXPORT const unsigned char CircleLoadingViewPodVersionString[];
 

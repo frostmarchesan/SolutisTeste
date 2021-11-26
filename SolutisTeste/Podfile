@@ -1,5 +1,5 @@
 
-platform :ios, '9.0'
+platform :ios, '12.0'
 
 target 'SolutisTeste' do
 
@@ -8,6 +8,6 @@ target 'SolutisTeste' do
   # Pods for SolutisTeste
 
 pod 'KeychainSwift', '~> 19.0'
-pod 'CircleLoading'
+pod 'CircleLoadingViewPod'
 
 end

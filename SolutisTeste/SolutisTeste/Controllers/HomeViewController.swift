@@ -7,13 +7,13 @@
 
 import UIKit
 import KeychainSwift
-import CircleLoading
+import CircleLoadingViewPod
 
 class HomeScreenViewController: UIViewController {
     
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var circleLoading: CircleLoading!
+    @IBOutlet weak var circleLoading: UIView!
     @IBOutlet weak var loginButtonOutlet: UIButton!
     @IBOutlet weak var switchButtonOutlet: UISwitch!
     
@@ -26,6 +26,9 @@ class HomeScreenViewController: UIViewController {
     let image = UIImageView()
     let loginUrl = "https://api.mobile.test.solutis.xyz/login"
     let statementURL = ""
+    let circle1 = CircleLines()
+    let circle2 = CircleLines()
+    let circle3 = CircleLines()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +56,8 @@ class HomeScreenViewController: UIViewController {
     
     @IBAction func loginPressed(_ sender: UIButton) {
         loginButtonOutlet.isEnabled = false
-        var loginCheck : Bool = validator.checkUserLog(entry: loginTextField.text ?? "")
-        var passwordCheck : Bool = validator.checkPassword(password: passwordTextField.text ?? "")
+        let loginCheck : Bool = validator.checkUserLog(entry: loginTextField.text ?? "")
+        let passwordCheck : Bool = validator.checkPassword(password: passwordTextField.text ?? "")
         
         if (loginCheck && passwordCheck) {
             showCircleLoading()
@@ -108,16 +111,27 @@ class HomeScreenViewController: UIViewController {
     
     func showCircleLoading () {
         if (circleLoading.isHidden) {
-            circleLoading.colors(color1: UIColor.blue, color2: UIColor.lightGray, color3: UIColor.systemBlue)
+            
+            configureCircles()
             circleLoading.isHidden = false
-            circleLoading.start()
+            
+            
+//            circleLoading.colors(color1: UIColor.blue, color2: UIColor.lightGray, color3: UIColor.systemBlue)
+//            circleLoading.isHidden = false
+//            circleLoading.start()
         }
     }
     
     func dismissCircleLoading () {
         DispatchQueue.main.async {
             self.circleLoading.isHidden = true
-            self.circleLoading.stop()
+            self.circle1.stopAnimation()
+            self.circle2.stopAnimation()
+            self.circle3.stopAnimation()
+            self.circle1.removeFromSuperview()
+            self.circle2.removeFromSuperview()
+            self.circle3.removeFromSuperview()
+//              self.circleLoading.stop()
         }
         
     }
@@ -126,6 +140,15 @@ class HomeScreenViewController: UIViewController {
         let alert = UIAlertController(title: "", message: "E-mail ou senha incorretos.", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    func configureCircles() {
+        circleLoading.addSubview(circle1.configureCircle(view: circleLoading, position: 60, width: 120, height: 120, color: UIColor.blue.cgColor, lineWidth: 6, strokeStart: 0.3, strokeEnd: 0.7, speed: 1))
+        
+        circleLoading.addSubview(circle2.configureCircle(view: circleLoading, position: 50, width: 100, height: 100, color: UIColor.gray.cgColor, lineWidth: 6, strokeStart: 0.1, strokeEnd: 0.5, speed: 1.2))
+        
+        circleLoading.addSubview(circle3.configureCircle(view: circleLoading, position: 40, width: 80, height: 80, color: UIColor.systemBlue.cgColor, lineWidth: 6, strokeStart: 0.5, strokeEnd: 0.8, speed: 1.5))
+    
     }
     
 }
