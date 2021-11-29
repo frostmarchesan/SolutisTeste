@@ -20,14 +20,19 @@ enum Extract
   {
     struct Request
     {
-        
+        let userLogin: String
+        let userPassword: String
+        let loginURL = "https://api.mobile.test.solutis.xyz/extrato"
     }
     struct Response
     {
-        
+        let data: String
+        let descricao: String
+        let valor: Double
     }
     struct ViewModel
     {
+        
     }
   }
 }

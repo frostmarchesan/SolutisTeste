@@ -11,23 +11,34 @@
 //
 
 import UIKit
+import KeychainSwift
 
-class LoginWorker {
+protocol LoginWorkerProtocol{
+    func loginRequest(url: String, userLogin: String, userPassword: String, completionHandler: @escaping (Result<User, Error>) -> Void)
+}
+
+
+class LoginWorker: LoginWorkerProtocol {
     
     var request = ServiceRequest()
+    let keyChain = KeyChainModel()
     
-    
-  func doSomeWork()
-  {
-  }
-    
-    func loginAPIRequest() {
-        request.performLoginRequest(urlString: <#T##String#>, userLogin: <#T##String#>, userPassword: <#T##String#>, completion: <#T##(Result<User, Error>) -> Void#>)
+    func doSomeWork()
+    {
     }
     
-    func extractAPIRequest() {
-        request.performStatementRequest(urlString: <#T##String#>, userToken: <#T##String#>, completion: <#T##(Result<[Statement], Error>) -> Void#>)
+    func loginRequest(url: String, userLogin: String, userPassword: String, completionHandler: @escaping (Result<User, Error>) -> Void) {
+        <#code#>
     }
+    
+    func saveUserKeyChain() {
+        keyChain.storeData(data: "true", key: "boolean")
+    }
+    
+    func dontSaveUserKeyChain() {
+        keyChain.storeData(data: "false", key: "boolean")
+    }
+        
     
     
 }

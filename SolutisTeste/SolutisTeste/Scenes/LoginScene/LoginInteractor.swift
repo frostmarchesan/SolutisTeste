@@ -38,4 +38,50 @@ class LoginInteractor: LoginBusinessLogic, LoginDataStore
     let response = Login.Something.Response()
     presenter?.presentSomething(response: response)
   }
+    func saveUserLoginSwitch (){
+        if (saveSwitch){
+            
+        }
+    }
+    
+    func permformLogin() {
+        worker?.loginRequest(url: , userLogin: <#T##String#>, userPassword: <#T##String#>, completionHandler: <#T##(Result<User, Error>) -> Void#>) { result in
+            switch result {
+            case .success(let user):
+                // criar usuário
+                // passar dados para a presenter
+                // chamar o router para passar dados para a tela de extrato
+                return
+            case .failure(let error):
+            
+                return
+            }
+            
+        }
+    }
+    
+    func checkCPF() {
+        worker.checkCPF()
+        // retornar um verdadeiro ou false e devolver informações à presenter
+        if (false) {
+            
+        }
+    }
+    
+    func checkLogin() {
+        worker.checkLogin()
+        // retornar um verdadeiro ou false e devolver informações à presenter
+        if (false) {
+            
+        }
+    }
+    
+    func checkKeyChain() {
+        worker.checkKeyChain()
+        // retornar um verdadeiro ou false e devolver informações à presenter
+        if (false) {
+            
+        }
+    }
+    
 }

@@ -20,12 +20,20 @@ enum Login
   {
     struct Request
     {
+        let userLogin: String
+        let userPassword: String
+        let loginURL = "https://api.mobile.test.solutis.xyz/extrato"
     }
     struct Response
     {
+        let nome: String
+        let cpf: String
+        let saldo: Double
+        let token: String
     }
     struct ViewModel
     {
+        
     }
   }
 }

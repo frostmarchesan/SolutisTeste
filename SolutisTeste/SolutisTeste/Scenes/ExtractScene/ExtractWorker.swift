@@ -14,7 +14,15 @@ import UIKit
 
 class ExtractWorker
 {
-  func doSomeWork()
-  {
-  }
+    
+    var request = ServiceRequest()
+    
+    func doSomeWork()
+    {
+    }
+    
+    func extractAPIRequest() {
+        request.performStatementRequest(urlString: url, userToken: <#T##String#>, completion: <#T##(Result<[Statement], Error>) -> Void#>)
+    }
+    
 }
