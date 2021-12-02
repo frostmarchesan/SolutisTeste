@@ -15,6 +15,8 @@ import KeychainSwift
 
 protocol LoginWorkerProtocol{
     func loginRequest(url: String, userLogin: String, userPassword: String, completionHandler: @escaping (Result<User, Error>) -> Void)
+    func loginCheck(login: String)
+    func passwordCheck(password: String)
 }
 
 
@@ -22,6 +24,7 @@ class LoginWorker: LoginWorkerProtocol {
     
     var request = ServiceRequest()
     let keyChain = KeyChainModel()
+    let validator = LoginValidator()
     
     func doSomeWork()
     {
@@ -39,6 +42,12 @@ class LoginWorker: LoginWorkerProtocol {
         keyChain.storeData(data: "false", key: "boolean")
     }
         
+    func loginCheck(login: String) -> Bool {
+        return validator.checkUserLog(entry: login)
+    }
     
+    func passwordCheck(password: String) -> Bool {
+        return validator.checkPassword(password: password)
+    }
     
 }

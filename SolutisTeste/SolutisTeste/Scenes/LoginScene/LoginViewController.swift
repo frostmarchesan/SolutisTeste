@@ -82,20 +82,25 @@ class LoginViewController: UIViewController, LoginDisplayLogic
     
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
+        loginButtonOutlet.isEnabled = false
+        guard let userLogin = loginTextField.text else { return }
+        guard let userPassword = passwordTextField.text else { return }
+        
+    
     }
     
     
     @IBAction func saveUserSwitch(_ sender: UISwitch) {
     }
     
-  func doSomething()
-  {
-    let request = Login.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: Login.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+    func performLogin()
+    {
+        let request = Login.Something.Request()
+        interactor?.doSomething(request: request)
+    }
+    
+    func displaySomething(viewModel: Login.Something.ViewModel)
+    {
+        //nameTextField.text = viewModel.name
+    }
 }

@@ -203,8 +203,8 @@
 		BABF09EC275158A6000BFAB4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				BABF09FA27516620000BFAB4 /* ExtractScene */,
 				BABF09ED275158C3000BFAB4 /* LoginScene */,
+				BABF09FA27516620000BFAB4 /* ExtractScene */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";

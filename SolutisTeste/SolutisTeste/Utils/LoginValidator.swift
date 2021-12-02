@@ -23,7 +23,7 @@ struct LoginValidator {
 //MARK: - checkEmail
 extension LoginValidator {
     
-    func checkEmail(email: String) -> Bool{
+    private func checkEmail(email: String) -> Bool{
         do {
             let regex = try NSRegularExpression(pattern: emailRegex)
             let nsString = email as NSString
@@ -43,7 +43,7 @@ extension LoginValidator {
 //MARK: - checkCPF
 extension LoginValidator {
 
-    func checkCPF(cpf: String) -> Bool{
+    private func checkCPF(cpf: String) -> Bool{
         var cpfArray : [Int] = []
         // convert cpf string to an array of Int
         for letter in cpf {
@@ -64,7 +64,7 @@ extension LoginValidator {
         return true;
     }
     
-    func checkCpfSize (cpfArray : [Int]) -> Bool {
+    private func checkCpfSize (cpfArray : [Int]) -> Bool {
         if (cpfArray.count != 11) {
             return false
         }
@@ -72,14 +72,14 @@ extension LoginValidator {
     }
     
     // check if all numbers are equal to return an invalid cpf
-    func checkAllNumbersValidation (cpfArray : [Int]) -> Bool {
+    private func checkAllNumbersValidation (cpfArray : [Int]) -> Bool {
         if (cpfArray.allSatisfy { $0 == cpfArray.first }) {
             return false
         }
         return true
     }
     
-    func checkFirstValidationDigit (cpfArray : [Int]) -> Bool {
+    private func checkFirstValidationDigit (cpfArray : [Int]) -> Bool {
         var sum = 0
         var result = 0
         var multiplier = 10
@@ -98,7 +98,7 @@ extension LoginValidator {
         return true
     }
     
-    func checkSecondValidationDigit (cpfArray : [Int]) -> Bool {
+    private func checkSecondValidationDigit (cpfArray : [Int]) -> Bool {
         var sum = 0
         var result = 0
         var multiplier = 11
