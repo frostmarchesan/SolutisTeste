@@ -22,8 +22,8 @@ protocol LoginDataStore
     //var name: String { get set }
 }
 
-class LoginInteractor: LoginBusinessLogic, LoginDataStore
-{
+class LoginInteractor: LoginBusinessLogic, LoginDataStore {
+    
     var presenter: LoginPresentationLogic?
     var worker: LoginWorker?
     //var name: String = ""
@@ -33,55 +33,61 @@ class LoginInteractor: LoginBusinessLogic, LoginDataStore
     func doSomething(request: Login.Something.Request)
     {
         worker = LoginWorker()
-        worker?.doSomeWork()
+//        worker?.doSomeWork()
         
-        let response = Login.Something.Response()
-        presenter?.presentSomething(response: response)
+//        let response = Login.Something.Response()
+//        presenter?.presentSomething(response: response)
     }
     func saveUserLoginSwitch (){
-        if (saveSwitch){
-            
-        }
+        worker?.saveUserKeyChain()
     }
     
-    func permformLogin() {
-        worker?.loginRequest(url: , userLogin: <#T##String#>, userPassword: <#T##String#>, completionHandler: <#T##(Result<User, Error>) -> Void#>) { result in
-            switch result {
-            case .success(let user):
-                // criar usuário
-                // passar dados para a presenter
-                // chamar o router para passar dados para a tela de extrato
-                return
-            case .failure(let error):
-                
-                return
+    func dontSaveUserLoginSwitch(){
+        worker?.dontSaveUserKeyChain()
+    }
+    
+    func permformLogin(url: String, userLogin: String, userPassword: String, completionHandler: @escaping (Result<User, Error>) -> Void) {
+        
+        do {
+            try worker?.loginRequest(url: url, userLogin: userLogin, userPassword: userPassword, completionHandler: completionHandler) { result in
+                switch result {
+                case .success(let user):
+                    // criar usuário
+                    // passar dados para a presenter
+                    // chamar o router para passar dados para a tela de extrato
+                    return
+                case .failure(let error):
+                    return
+                }
             }
+        } catch { return }
             
-        }
     }
     
-    func checkCPF() {
-        worker.checkCPF()
+    func loginCheck(login: String) {
+        let loginPass = worker?.loginCheck(login: login)
         // retornar um verdadeiro ou false e devolver informações à presenter
         if (false) {
             
         }
     }
     
-    func checkLogin() {
-        worker.checkLogin()
+    func passwordCheck(password: String) {
+        let passwordPass =        worker?.passwordCheck(password: password)
         // retornar um verdadeiro ou false e devolver informações à presenter
         if (false) {
             
         }
     }
     
-    func checkKeyChain() {
-        worker.checkKeyChain()
-        // retornar um verdadeiro ou false e devolver informações à presenter
-        if (false) {
-            
-        }
+    func getKeyChain(key: String) -> String {
+        if let data = worker?.getKeyChain(key: key) { return data }
+        else { return "" }
     }
+    
+    func eraseKeyChain(key: String)  {
+        worker?.eraseKeyChain(key: key)
+    }
+    
     
 }

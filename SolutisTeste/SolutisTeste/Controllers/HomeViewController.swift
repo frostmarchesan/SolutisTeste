@@ -62,7 +62,7 @@ class HomeScreenViewController: UIViewController {
         if (loginCheck && passwordCheck) {
             showCircleLoading()
             do {
-            try loginRequest.performLoginRequest(urlString: loginUrl, userLogin: loginTextField.text ?? "", userPassword: passwordTextField.text ?? "") { result in
+                try loginRequest.performLoginRequest(urlString: loginUrl, userLogin: loginTextField.text ?? "", userPassword: passwordTextField.text ?? "") { result in
                     switch result{
                     case .success(let userResult):
                         DispatchQueue.main.async {

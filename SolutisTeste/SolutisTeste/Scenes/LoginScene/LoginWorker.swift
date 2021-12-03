@@ -15,8 +15,10 @@ import KeychainSwift
 
 protocol LoginWorkerProtocol{
     func loginRequest(url: String, userLogin: String, userPassword: String, completionHandler: @escaping (Result<User, Error>) -> Void)
-    func loginCheck(login: String)
-    func passwordCheck(password: String)
+    
+    func loginCheck(login: String) -> Bool
+    
+    func passwordCheck(password: String) -> Bool
 }
 
 
@@ -26,12 +28,10 @@ class LoginWorker: LoginWorkerProtocol {
     let keyChain = KeyChainModel()
     let validator = LoginValidator()
     
-    func doSomeWork()
-    {
-    }
-    
     func loginRequest(url: String, userLogin: String, userPassword: String, completionHandler: @escaping (Result<User, Error>) -> Void) {
-        <#code#>
+        do {
+            let apiRequest = try request.performLoginRequest(urlString: url, userLogin: userLogin, userPassword: userPassword, completion: completionHandler)
+        } catch { return }
     }
     
     func saveUserKeyChain() {
@@ -41,7 +41,15 @@ class LoginWorker: LoginWorkerProtocol {
     func dontSaveUserKeyChain() {
         keyChain.storeData(data: "false", key: "boolean")
     }
-        
+    
+    func getKeyChain(key: String) -> String {
+        return keyChain.getData(key: key)
+    }
+
+    func eraseKeyChain(key: String) {
+        keyChain.eraseData(key: key)
+    }
+    
     func loginCheck(login: String) -> Bool {
         return validator.checkUserLog(entry: login)
     }
