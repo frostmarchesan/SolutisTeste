@@ -41,6 +41,7 @@
 		BABF0A0427516638000BFAB4 /* ExtractModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABF09FE27516638000BFAB4 /* ExtractModels.swift */; };
 		BABF0A0527516638000BFAB4 /* ExtractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABF09FF27516638000BFAB4 /* ExtractViewController.swift */; };
 		BABF0A0627516638000BFAB4 /* ExtractInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABF0A0027516638000BFAB4 /* ExtractInteractor.swift */; };
+		BAC936B2275FAB4A00B70A49 /* UserLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC936B1275FAB4A00B70A49 /* UserLoginData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		BABF09FE27516638000BFAB4 /* ExtractModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractModels.swift; sourceTree = "<group>"; };
 		BABF09FF27516638000BFAB4 /* ExtractViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractViewController.swift; sourceTree = "<group>"; };
 		BABF0A0027516638000BFAB4 /* ExtractInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractInteractor.swift; sourceTree = "<group>"; };
+		BAC936B1275FAB4A00B70A49 /* UserLoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			children = (
 				BA341645271E13C1003490CA /* Statement.swift */,
 				BA341652271F0EA5003490CA /* User.swift */,
+				BAC936B1275FAB4A00B70A49 /* UserLoginData.swift */,
 				BA8EBA34271F487B00D41D55 /* JSON Models */,
 			);
 			path = Model;
@@ -387,6 +390,7 @@
 				BA341651271F0E6A003490CA /* LoginValidator.swift in Sources */,
 				BA341643271E0C54003490CA /* ReusableCellTableViewCell.swift in Sources */,
 				2EE5EA7A2721A8C5004FCD23 /* CustomNames.swift in Sources */,
+				BAC936B2275FAB4A00B70A49 /* UserLoginData.swift in Sources */,
 				BABF0A0427516638000BFAB4 /* ExtractModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

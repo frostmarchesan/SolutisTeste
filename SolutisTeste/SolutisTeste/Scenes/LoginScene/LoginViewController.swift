@@ -92,7 +92,7 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     
     @IBAction func saveUserSwitch(_ sender: UISwitch) {
         if (sender.isOn) {
-            interactor?.worker.saveUserLoginSwitch()
+            interactor?.saveUserLoginSwitch()
         } else {
             switchButtonOutlet.isOn = false
             interactor?.worker?.dontSaveUserKeyChain()
@@ -108,5 +108,10 @@ class LoginViewController: UIViewController, LoginDisplayLogic {
     func displaySomething(viewModel: Login.Something.ViewModel)
     {
         //nameTextField.text = viewModel.name
+    }
+    
+    func presentSavedUserData(user: Login.Something.ViewModel) {
+        loginTextField.text = user.user.login
+        passwordTextField.text = user.user.password
     }
 }

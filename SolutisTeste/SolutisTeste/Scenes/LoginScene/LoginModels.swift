@@ -16,24 +16,25 @@ enum Login
 {
   // MARK: Use cases
   
-  enum Something
-  {
-    struct Request
-    {
+    
+    //mudar o nome para algo mais apropriado
+  enum Something {
+    struct Request {
         let userLogin: String
         let userPassword: String
         let loginURL = "https://api.mobile.test.solutis.xyz/extrato"
     }
-    struct Response
-    {
+    struct Response {
         let nome: String
         let cpf: String
         let saldo: Double
         let token: String
     }
-    struct ViewModel
-    {
-        
+    struct ViewModel {
+        let user: UserLoginData
     }
   }
+    
+    // ver se há necessidade de criar um enum proprio para outro cenário
+    
 }

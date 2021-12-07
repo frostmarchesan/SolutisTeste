@@ -15,9 +15,7 @@ import KeychainSwift
 
 protocol LoginWorkerProtocol{
     func loginRequest(url: String, userLogin: String, userPassword: String, completionHandler: @escaping (Result<User, Error>) -> Void)
-    
     func loginCheck(login: String) -> Bool
-    
     func passwordCheck(password: String) -> Bool
 }
 
